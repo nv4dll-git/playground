@@ -1,3 +1,7 @@
+'''
+Copyright (C) 2020 nv4dll
+E-mail contact: nv4dll@outlook.com
+'''
 import time
 import requests
 import sys
