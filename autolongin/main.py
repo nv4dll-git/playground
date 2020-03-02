@@ -53,5 +53,5 @@ driver.find_element_by_class_name('plat-title').click()
 #driver.close()
  
 # 代码调用：
-# python.exe JDSignup.py
+# python.exe main.py
 # 可以将这行命令添加到Windows计划任务，每天运行
