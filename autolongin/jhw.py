@@ -19,6 +19,7 @@ s1 = requests.Session()
 s2 = requests.Session()
 s3 = requests.Session()
 s4 = requests.Session()
+s5 = requests.Session()
 
 data1jhw = {
     'StuLoginMode': '1',
@@ -183,7 +184,7 @@ data1qn = {
 data2qn={
     'StudentId': '201821000715',
     'Name': '秦楠',
-    'MoveTel': '18591796262',
+    'MoveTel': '17764989562',
     'Province': '620000',
     'City':'621000',
     'County':'621002',
@@ -212,12 +213,12 @@ data2qn={
     'SpeGrade': '2018',
     'SpecialtyName': '油气田开发工程',
     'ClassName': '油气田开发工程专业硕2018级05班',
-    'ProvinceName': '湖北省',
-    'CityName': '荆州市',
-    'CountyName': '松滋市',
-    'FaProvinceName': '湖北省',
-    'FaCityName': '荆州市',
-    'FaCountyName': '松滋市',
+    'ProvinceName': '甘肃省',
+    'CityName': '庆阳市',
+    'CountyName': '西峰区',
+    'FaProvinceName': '甘肃省',
+    'FaCityName': '庆阳市',
+    'FaCountyName': '西峰区',
     'radioCount': '11',
     'checkboxCount': '0',
     'blackCount': '0',
@@ -276,7 +277,6 @@ data2fj={
 }
 
 def login(s,login_url,data,user):
-
 
     response = s.post(url=login_url,data=data,headers=headers)
     #print(response)
@@ -338,8 +338,8 @@ def main():
 
     time.sleep(2)
     
-    login(s4,login_url,data1fj,"付健")
-    getIndex(s4,index_url,logout_url,data2fj,"付健")
+    login(s5,login_url,data1fj,"付健")
+    getIndex(s5,index_url,logout_url,data2fj,"付健")
 
 if __name__ == "__main__":
     main()
