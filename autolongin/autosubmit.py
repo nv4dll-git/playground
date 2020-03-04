@@ -325,7 +325,8 @@ def getIndex(log,s,index_url,logout_url,data,user):
 
 def wirtelog(log):
     localtime = time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime()) 
-    with open("autosubmit"+localtime+".log","a") as f:                                  #写入log文件
+    #change in linux
+    with open("C:\\Users\\Ashley\\Desktop\\"+"autosubmit"+localtime+".log","a") as f:                                  #写入log文件
         for i in range(len(log)):                                                         
             for j in range(len(log[i])): 
                 f.write(str(log[i][j]))  
