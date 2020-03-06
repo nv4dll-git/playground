@@ -325,7 +325,7 @@ data2wc={
     'radioCount': '11',
     'checkboxCount': '0',
     'blackCount': '0',
-    'PZData': '[{"OptionName":"假期离校回家，目前尚未返校","SelectId":"2e856fa0-5b66-4ba5-97a9-177b4b77e2b3","TitleId":"6564c529-c9ce-4c9c-8158-fcbf53b7ef9a","OptionType":"0"},{"OptionName":"返乡至非湖北地区","SelectId":"ee6648b4-3da8-41ae-b769-04a8d29519e1","TitleId":"0f9eba15-972e-47ce-aff7-691f0c802b78","OptionType":"0"},{"OptionName":"无","SelectId":"d4b03707-0619-4dfb-82c3-c1f2af3bfb53","TitleId":"35eec330-3122-4054-a4ac-fe8ac95135df","OptionType":"0"},{"OptionName":"无","SelectId":"2ff4ae72-0d80-4428-a919-68e04e9891b9","TitleId":"bd1fef27-db0a-4898-8963-8b8e34714dfc","OptionType":"0"},{"OptionName":"无","SelectId":"24d314e6-d37d-448d-897e-1910b30f8da1","TitleId":"df379fe2-3722-4707-93fd-56d41a7b0940","OptionType":"0"},{"OptionName":"否","SelectId":"6ea8bb17-c725-4ed2-853f-29627f94b4bc","TitleId":"1a3bbc99-c818-46e4-a138-a250f014846b","OptionType":"0"},{"OptionName":"否","SelectId":"a41b9a56-788a-493b-8d20-df94f8983af0","TitleId":"24b30350-ac77-4afa-abda-41d0e88822da","OptionType":"0"},{"OptionName":"否，未接触过","SelectId":"04570d7e-0b63-44d4-b8a2-edce144ee5bd","TitleId":"8bdb0d2b-649c-4798-9d95-9c2b06a0c7c1","OptionType":"0"},{"OptionName":"否","SelectId":"5712563d-eb34-4fd1-a9fe-1b68f57e7e38","TitleId":"be0ed244-91e5-4dbd-a4ab-9c5967145bf3","OptionType":"0"},{"OptionName":"身体状况良好，无异常症状","SelectId":"dd238366-45d4-42e9-abab-40f957c4991e","TitleId":"9e8df714-3e64-4052-9200-766680883e81","OptionType":"0"},{"OptionName":"否","SelectId":"46b00678-b1b5-47e0-b404-00ed9f1a5291","TitleId":"6c4db0fd-bb34-46a1-9f88-4a0315283398","OptionType":"0"}]}'
+    'PZData': '[{"OptionName":"假期离校回家，目前尚未返校","SelectId":"2e856fa0-5b66-4ba5-97a9-177b4b77e2b3","TitleId":"6564c529-c9ce-4c9c-8158-fcbf53b7ef9a","OptionType":"0"},{"OptionName":"返乡至非湖北地区","SelectId":"ee6648b4-3da8-41ae-b769-04a8d29519e1","TitleId":"0f9eba15-972e-47ce-aff7-691f0c802b78","OptionType":"0"},{"OptionName":"无","SelectId":"d4b03707-0619-4dfb-82c3-c1f2af3bfb53","TitleId":"35eec330-3122-4054-a4ac-fe8ac95135df","OptionType":"0"},{"OptionName":"无","SelectId":"2ff4ae72-0d80-4428-a919-68e04e9891b9","TitleId":"bd1fef27-db0a-4898-8963-8b8e34714dfc","OptionType":"0"},{"OptionName":"无","SelectId":"24d314e6-d37d-448d-897e-1910b30f8da1","TitleId":"df379fe2-3722-4707-93fd-56d41a7b0940","OptionType":"0"},{"OptionName":"否","SelectId":"6ea8bb17-c725-4ed2-853f-29627f94b4bc","TitleId":"1a3bbc99-c818-46e4-a138-a250f014846b","OptionType":"0"},{"OptionName":"否","SelectId":"a41b9a56-788a-493b-8d20-df94f8983af0","TitleId":"24b30350-ac77-4afa-abda-41d0e88822da","OptionType":"0"},{"OptionName":"否，未接触过","SelectId":"04570d7e-0b63-44d4-b8a2-edce144ee5bd","TitleId":"8bdb0d2b-649c-4798-9d95-9c2b06a0c7c1","OptionType":"0"},{"OptionName":"否","SelectId":"5712563d-eb34-4fd1-a9fe-1b68f57e7e38","TitleId":"be0ed244-91e5-4dbd-a4ab-9c5967145bf3","OptionType":"0"},{"OptionName":"身体状况良好，无异常症状","SelectId":"dd238366-45d4-42e9-abab-40f957c4991e","TitleId":"9e8df714-3e64-4052-9200-766680883e81","OptionType":"0"},{"OptionName":"否","SelectId":"46b00678-b1b5-47e0-b404-00ed9f1a5291","TitleId":"6c4db0fd-bb34-46a1-9f88-4a0315283398","OptionType":"0"}]'
 }
 
 def login(log,s,login_url,data,user):
@@ -412,8 +412,8 @@ def main():
     
     time.sleep(2)
 
-    login(log,s5,login_url,data1wc,"文超")
-    getIndex(log,s5,index_url,logout_url,data2wc,"文超")
+    login(log,s6,login_url,data1wc,"文超")
+    getIndex(log,s6,index_url,logout_url,data2wc,"文超")
     wirtelog(log)
 
 if __name__ == "__main__":
