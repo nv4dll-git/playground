@@ -79,7 +79,7 @@ data1mmy = {
     'txtPwd': '04822x'
     #'codeInput': '9fmx'
     }
-#todo 改区域编码
+#TODO 改区域编码
 data2mmy={
     'StudentId': '201821000685',
     'Name': '马珉玥',
@@ -130,7 +130,7 @@ data1mkf = {
   'txtPwd': '101631'
   #'codeInput': '9fmx'
 }
-#todo 改区域编码
+#TODO 改区域编码
 data2mkf={
     'StudentId': '201821000632',
     'Name': '穆轲帆',
