@@ -1,0 +1,285 @@
+WELL    'Well PRODUCER1'
+PRODUCER 'Well PRODUCER1'
+OPERATE  MAX  STG 0.5 CONT
+OPERATE  MIN  BHP 100.0 CONT
+**          rad  geofac  wfrac  skin
+GEOMETRY  K  0.0762  0.37  1.0  0.0
+	PERF      GEOA  'Well PRODUCER1'
+** UBA               ff          Status  Connection
+2 2 1         1.0  OPEN    FLOW-TO  'SURFACE'
+
+
+WELL    'Well INJECTOR2'
+INJECTOR UNWEIGHT 'Well INJECTOR2'
+WATER
+OPERATE  MAX  STw 0.1 CONT
+OPERATE  MAX  BHP 10000 CONT
+**          rad  geofac  wfrac  skin
+GEOMETRY  K  0.0762  0.37  1.0  0.0
+	PERF      GEOA  'Well INJECTOR2'
+** UBA               ff          Status  Connection
+2 4 1         1.0  OPEN    FLOW-FROM  'SURFACE'
+
+
+WELL    'Well PRODUCER3'
+PRODUCER 'Well PRODUCER3'
+OPERATE  MAX  STG 0.5 CONT
+OPERATE  MIN  BHP 100.0 CONT
+**          rad  geofac  wfrac  skin
+GEOMETRY  K  0.0762  0.37  1.0  0.0
+	PERF      GEOA  'Well PRODUCER3'
+** UBA               ff          Status  Connection
+2 6 1         1.0  OPEN    FLOW-TO  'SURFACE'
+
+
+WELL    'Well INJECTOR4'
+INJECTOR UNWEIGHT 'Well INJECTOR4'
+WATER
+OPERATE  MAX  STw 0.1 CONT
+OPERATE  MAX  BHP 10000 CONT
+**          rad  geofac  wfrac  skin
+GEOMETRY  K  0.0762  0.37  1.0  0.0
+	PERF      GEOA  'Well INJECTOR4'
+** UBA               ff          Status  Connection
+2 8 1         1.0  OPEN    FLOW-FROM  'SURFACE'
+
+
+WELL    'Well PRODUCER5'
+PRODUCER 'Well PRODUCER5'
+OPERATE  MAX  STG 0.5 CONT
+OPERATE  MIN  BHP 100.0 CONT
+**          rad  geofac  wfrac  skin
+GEOMETRY  K  0.0762  0.37  1.0  0.0
+	PERF      GEOA  'Well PRODUCER5'
+** UBA               ff          Status  Connection
+2 10 1         1.0  OPEN    FLOW-TO  'SURFACE'
+
+
+WELL    'Well PRODUCER6'
+PRODUCER 'Well PRODUCER6'
+OPERATE  MAX  STG 0.5 CONT
+OPERATE  MIN  BHP 100.0 CONT
+**          rad  geofac  wfrac  skin
+GEOMETRY  K  0.0762  0.37  1.0  0.0
+	PERF      GEOA  'Well PRODUCER6'
+** UBA               ff          Status  Connection
+4 2 1         1.0  OPEN    FLOW-TO  'SURFACE'
+
+
+WELL    'Well INJECTOR7'
+INJECTOR UNWEIGHT 'Well INJECTOR7'
+WATER
+OPERATE  MAX  STw 0.1 CONT
+OPERATE  MAX  BHP 10000 CONT
+**          rad  geofac  wfrac  skin
+GEOMETRY  K  0.0762  0.37  1.0  0.0
+	PERF      GEOA  'Well INJECTOR7'
+** UBA               ff          Status  Connection
+4 4 1         1.0  OPEN    FLOW-FROM  'SURFACE'
+
+
+WELL    'Well PRODUCER8'
+PRODUCER 'Well PRODUCER8'
+OPERATE  MAX  STG 0.5 CONT
+OPERATE  MIN  BHP 100.0 CONT
+**          rad  geofac  wfrac  skin
+GEOMETRY  K  0.0762  0.37  1.0  0.0
+	PERF      GEOA  'Well PRODUCER8'
+** UBA               ff          Status  Connection
+4 6 1         1.0  OPEN    FLOW-TO  'SURFACE'
+
+
+WELL    'Well INJECTOR9'
+INJECTOR UNWEIGHT 'Well INJECTOR9'
+WATER
+OPERATE  MAX  STw 0.1 CONT
+OPERATE  MAX  BHP 10000 CONT
+**          rad  geofac  wfrac  skin
+GEOMETRY  K  0.0762  0.37  1.0  0.0
+	PERF      GEOA  'Well INJECTOR9'
+** UBA               ff          Status  Connection
+4 8 1         1.0  OPEN    FLOW-FROM  'SURFACE'
+
+
+WELL    'Well PRODUCER10'
+PRODUCER 'Well PRODUCER10'
+OPERATE  MAX  STG 0.5 CONT
+OPERATE  MIN  BHP 100.0 CONT
+**          rad  geofac  wfrac  skin
+GEOMETRY  K  0.0762  0.37  1.0  0.0
+	PERF      GEOA  'Well PRODUCER10'
+** UBA               ff          Status  Connection
+4 10 1         1.0  OPEN    FLOW-TO  'SURFACE'
+
+
+WELL    'Well PRODUCER11'
+PRODUCER 'Well PRODUCER11'
+OPERATE  MAX  STG 0.5 CONT
+OPERATE  MIN  BHP 100.0 CONT
+**          rad  geofac  wfrac  skin
+GEOMETRY  K  0.0762  0.37  1.0  0.0
+	PERF      GEOA  'Well PRODUCER11'
+** UBA               ff          Status  Connection
+6 2 1         1.0  OPEN    FLOW-TO  'SURFACE'
+
+
+WELL    'Well INJECTOR12'
+INJECTOR UNWEIGHT 'Well INJECTOR12'
+WATER
+OPERATE  MAX  STw 0.1 CONT
+OPERATE  MAX  BHP 10000 CONT
+**          rad  geofac  wfrac  skin
+GEOMETRY  K  0.0762  0.37  1.0  0.0
+	PERF      GEOA  'Well INJECTOR12'
+** UBA               ff          Status  Connection
+6 4 1         1.0  OPEN    FLOW-FROM  'SURFACE'
+
+
+WELL    'Well PRODUCER13'
+PRODUCER 'Well PRODUCER13'
+OPERATE  MAX  STG 0.5 CONT
+OPERATE  MIN  BHP 100.0 CONT
+**          rad  geofac  wfrac  skin
+GEOMETRY  K  0.0762  0.37  1.0  0.0
+	PERF      GEOA  'Well PRODUCER13'
+** UBA               ff          Status  Connection
+6 6 1         1.0  OPEN    FLOW-TO  'SURFACE'
+
+
+WELL    'Well INJECTOR14'
+INJECTOR UNWEIGHT 'Well INJECTOR14'
+WATER
+OPERATE  MAX  STw 0.1 CONT
+OPERATE  MAX  BHP 10000 CONT
+**          rad  geofac  wfrac  skin
+GEOMETRY  K  0.0762  0.37  1.0  0.0
+	PERF      GEOA  'Well INJECTOR14'
+** UBA               ff          Status  Connection
+6 8 1         1.0  OPEN    FLOW-FROM  'SURFACE'
+
+
+WELL    'Well PRODUCER15'
+PRODUCER 'Well PRODUCER15'
+OPERATE  MAX  STG 0.5 CONT
+OPERATE  MIN  BHP 100.0 CONT
+**          rad  geofac  wfrac  skin
+GEOMETRY  K  0.0762  0.37  1.0  0.0
+	PERF      GEOA  'Well PRODUCER15'
+** UBA               ff          Status  Connection
+6 10 1         1.0  OPEN    FLOW-TO  'SURFACE'
+
+
+WELL    'Well PRODUCER16'
+PRODUCER 'Well PRODUCER16'
+OPERATE  MAX  STG 0.5 CONT
+OPERATE  MIN  BHP 100.0 CONT
+**          rad  geofac  wfrac  skin
+GEOMETRY  K  0.0762  0.37  1.0  0.0
+	PERF      GEOA  'Well PRODUCER16'
+** UBA               ff          Status  Connection
+8 2 1         1.0  OPEN    FLOW-TO  'SURFACE'
+
+
+WELL    'Well INJECTOR17'
+INJECTOR UNWEIGHT 'Well INJECTOR17'
+WATER
+OPERATE  MAX  STw 0.1 CONT
+OPERATE  MAX  BHP 10000 CONT
+**          rad  geofac  wfrac  skin
+GEOMETRY  K  0.0762  0.37  1.0  0.0
+	PERF      GEOA  'Well INJECTOR17'
+** UBA               ff          Status  Connection
+8 4 1         1.0  OPEN    FLOW-FROM  'SURFACE'
+
+
+WELL    'Well PRODUCER18'
+PRODUCER 'Well PRODUCER18'
+OPERATE  MAX  STG 0.5 CONT
+OPERATE  MIN  BHP 100.0 CONT
+**          rad  geofac  wfrac  skin
+GEOMETRY  K  0.0762  0.37  1.0  0.0
+	PERF      GEOA  'Well PRODUCER18'
+** UBA               ff          Status  Connection
+8 6 1         1.0  OPEN    FLOW-TO  'SURFACE'
+
+
+WELL    'Well INJECTOR19'
+INJECTOR UNWEIGHT 'Well INJECTOR19'
+WATER
+OPERATE  MAX  STw 0.1 CONT
+OPERATE  MAX  BHP 10000 CONT
+**          rad  geofac  wfrac  skin
+GEOMETRY  K  0.0762  0.37  1.0  0.0
+	PERF      GEOA  'Well INJECTOR19'
+** UBA               ff          Status  Connection
+8 8 1         1.0  OPEN    FLOW-FROM  'SURFACE'
+
+
+WELL    'Well PRODUCER20'
+PRODUCER 'Well PRODUCER20'
+OPERATE  MAX  STG 0.5 CONT
+OPERATE  MIN  BHP 100.0 CONT
+**          rad  geofac  wfrac  skin
+GEOMETRY  K  0.0762  0.37  1.0  0.0
+	PERF      GEOA  'Well PRODUCER20'
+** UBA               ff          Status  Connection
+8 10 1         1.0  OPEN    FLOW-TO  'SURFACE'
+
+
+WELL    'Well PRODUCER21'
+PRODUCER 'Well PRODUCER21'
+OPERATE  MAX  STG 0.5 CONT
+OPERATE  MIN  BHP 100.0 CONT
+**          rad  geofac  wfrac  skin
+GEOMETRY  K  0.0762  0.37  1.0  0.0
+	PERF      GEOA  'Well PRODUCER21'
+** UBA               ff          Status  Connection
+10 2 1         1.0  OPEN    FLOW-TO  'SURFACE'
+
+
+WELL    'Well INJECTOR22'
+INJECTOR UNWEIGHT 'Well INJECTOR22'
+WATER
+OPERATE  MAX  STw 0.1 CONT
+OPERATE  MAX  BHP 10000 CONT
+**          rad  geofac  wfrac  skin
+GEOMETRY  K  0.0762  0.37  1.0  0.0
+	PERF      GEOA  'Well INJECTOR22'
+** UBA               ff          Status  Connection
+10 4 1         1.0  OPEN    FLOW-FROM  'SURFACE'
+
+
+WELL    'Well PRODUCER23'
+PRODUCER 'Well PRODUCER23'
+OPERATE  MAX  STG 0.5 CONT
+OPERATE  MIN  BHP 100.0 CONT
+**          rad  geofac  wfrac  skin
+GEOMETRY  K  0.0762  0.37  1.0  0.0
+	PERF      GEOA  'Well PRODUCER23'
+** UBA               ff          Status  Connection
+10 6 1         1.0  OPEN    FLOW-TO  'SURFACE'
+
+
+WELL    'Well INJECTOR24'
+INJECTOR UNWEIGHT 'Well INJECTOR24'
+WATER
+OPERATE  MAX  STw 0.1 CONT
+OPERATE  MAX  BHP 10000 CONT
+**          rad  geofac  wfrac  skin
+GEOMETRY  K  0.0762  0.37  1.0  0.0
+	PERF      GEOA  'Well INJECTOR24'
+** UBA               ff          Status  Connection
+10 8 1         1.0  OPEN    FLOW-FROM  'SURFACE'
+
+
+WELL    'Well PRODUCER25'
+PRODUCER 'Well PRODUCER25'
+OPERATE  MAX  STG 0.5 CONT
+OPERATE  MIN  BHP 100.0 CONT
+**          rad  geofac  wfrac  skin
+GEOMETRY  K  0.0762  0.37  1.0  0.0
+	PERF      GEOA  'Well PRODUCER25'
+** UBA               ff          Status  Connection
+10 10 1         1.0  OPEN    FLOW-TO  'SURFACE'
+
+
