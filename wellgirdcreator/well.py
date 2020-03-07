@@ -25,45 +25,8 @@ def datreader(filename):
 	for i in range (0,count):
 		row[i] = dataslines[i].split()
 	return row
+#TODO merge this into wellgird
 
-def datwirter(well):
-	"""
-	将生成的井网数据写入dat文件
-	"""
-	 
-	io = []
-
-	for i in range(0,well.wellcount):
-
-		io.append("WELL    "+"'Well "+str(well.wellname[i])+"'")
-		
-		if well.welltype[i] == "PRODUCER" :
-			io.append(str(well.welltype[i])+" 'Well "+str(well.wellname[i])+"'")
-			io.append("OPERATE  MAX  STG " + str(well.operate[0][i])+" CONT")
-			io.append("OPERATE  MIN  BHP " + str(well.operate[1][i])+" CONT") 
-		elif well.welltype[i] == "INJECTOR" :
-			io.append(str(well.welltype[i])+" 'Well "+str(well.wellname[i])+"'")
-			io.append("INCOMP  "+well.incomp[i])
-			io.append("OPERATE  MAX  STW " + str(well.operate[0][i])+ " CONT")
-			io.append("OPERATE  MAX  BHP " + str(well.operate[1][i])+" CONT") 
-
-		io.append("**          rad  geofac  wfrac  skin")
-		io.append("GEOMETRY  K  0.0762  0.37  1.0  0.0")
-		io.append("      PERF      GEOA  "+"'Well "+str(well.wellname[i])+"'")
-		io.append("** UBA               ff          Status  Connection")  
-		
-		if well.welltype[i] == "PRODUCER" :
-			io.append(str(well.i[i])+" "+str(well.j[i])+" "+str(well.k[i])+"         "+"1.0  OPEN    FLOW-TO  'SURFACE'")
-		elif well.welltype[i] == "INJECTOR" :
-			io.append(str(well.i[i])+" "+str(well.j[i])+" "+str(well.k[i])+"         "+"1.0  OPEN    FLOW-FROM  'SURFACE'")
-		io.append("\n")
-
-	localtime = time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime()) 
-	with open("well"+localtime+".dat","a") as f:                                  #写入dat文件
-		for i in range(len(io)):                                                         
-			for j in range(len(io[i])): 
-				f.write(str(io[i][j]))  
-			f.write("\n")
 
 class gridconstucter():
 		
@@ -197,13 +160,13 @@ class wellgrid():
 		self.reversedfivepoint = False
 		#九点
 		self.ninepoint = False
-
+		self.check(grid,x,y)
 		self.wellplan(grid,wellgirdtype,x,y,STGP,BHPP,STWI,BHPI,INCOMP)
 
 	def check(self,grid,x,y):
-		if x[1] > gird.gridx :
+		if x[1] > grid.gridx :
 			raise Exception("x方向上限超过了网格上限！")
-		elif y[1] > gird.gridy:
+		elif y[1] > grid.gridy:
 			raise Exception("y方向上限超过了网格上限！")
 		elif x[0] < 0 or y[0]  < 0 or x[1]  < 0  or y[1]  < 0 :
 			raise Exception("x、y方向起始点均应大于0！")
@@ -414,59 +377,67 @@ class wellgrid():
 
 				plt.scatter(self.xcoord[i]*grid.di,self.ycoord[i]*grid.dj,color="w",linewidths=1,s=50,edgecolors='blue')
 
+	def datwirter(self):
 
-class well():
-	"""
-	well类
-	"""
-	def __init__(self,wellgrid):
-
-		self.wellcoord(wellgrid)
-		self.incomp =  wellgrid.incomp
-		self.operate = wellgrid.operatetype
-		self.typename(wellgrid)
-
-
-	#	self.operatetype()	
-
-	#井坐标
-	def wellcoord(self,wellgrid):
-
-		self.wellcount = wellgrid.wellcount
-		self.i = wellgrid.xcoord
-		self.j = wellgrid.ycoord
-		self.k = wellgrid.zcoord
-	#井类型与名称
-	def typename(self,wellgrid):
-
-		self.welltype = []
+		#写入dat文件
 		self.wellname = []
+		localtime = time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime()) 
+		with open("well"+localtime+".dat","a") as f:  
+			for i in range(0,self.wellcount):
+				if self.welltype[i] == 1:
+					self.welltype.append("PRODUCER")
+					self.wellname.append("PRODUCER"+str(i+1))
+				elif self.welltype[i] == 0 :
+					self.welltype.append("INJECTOR")
+					self.wellname.append("INJECTOR"+str(i+1))
 
-		for i in range(0,wellgrid.wellcount):
-			if wellgrid.welltype[i] == 1:
-				self.welltype.append("PRODUCER")
-				self.wellname.append("PRODUCER"+str(i+1))
-			elif wellgrid.welltype[i] == 0 :
-				self.welltype.append("INJECTOR")
-				self.wellname.append("INJECTOR"+str(i+1))
-	def operatetype(self,wellgrid):	
-		self.operate = "MAX STG"
+			for i in range(0,self.wellcount):
 
-#一下两步不是完全需要
-dat = datreader("Ji2-25.dat")		
-gird = gridconstucter(dat)
-#x、y方向起点、终点、步长：网格单位
-x=[2,10,2]
-y=[2,10,2]
+				f.write("WELL    "+"'Well "+str(self.wellname[i])+"'"+"\n")
+				
+				if self.welltype[i] == 1 :
+					f.write("PRODUCER"+" 'Well "+str(self.wellname[i])+"'"+"\n")
+					f.write("OPERATE  MAX  STG " + str(self.operatetype[0][i])+" CONT"+"\n")
+					f.write("OPERATE  MIN  BHP " + str(self.operatetype[1][i])+" CONT"+"\n") 
+				elif self.welltype[i] == 0 :
+					f.write("INJECTOR"+" 'Well "+str(self.wellname[i])+"'"+"\n")
+					f.write("INCOMP  "+self.incomp[i]+"\n")
+					f.write("OPERATE  MAX  STW " + str(self.operatetype[0][i])+ " CONT"+"\n")
+					f.write("OPERATE  MAX  BHP " + str(self.operatetype[1][i])+" CONT"+"\n") 
 
-STGP=0.5
-BHPP=100.
-STWI=0.1
-BHPI=10000
-INCOMP = "WATER"
+				f.write("**          rad  geofac  wfrac  skin"+"\n")
+				f.write("GEOMETRY  K  0.0762  0.37  1.0  0.0"+"\n")
+				f.write("      PERF      GEOA  "+"'Well "+str(self.wellname[i])+"'"+"\n")
+				f.write("** UBA               ff          Status  Connection"+"\n")  
+				
+				f.write(str(self.xcoord[i])+" "+str(self.ycoord[i])+" "+str(self.zcoord[i])+"         ")
+				if self.welltype[i] == 1 :
+					f.write("1.0  OPEN    FLOW-TO  'SURFACE'"+"\n")
+				elif self.welltype[i] == 0 :
+					f.write("1.0  OPEN    FLOW-FROM  'SURFACE'"+"\n")
+				f.write("\n")
 
-wellgrid = wellgrid(gird,"fourpoint",x,y,STGP,BHPP,STWI,BHPI,INCOMP)
-well = well(wellgrid)
-datwirter(well)
-#显示图
-plt.show()
+
+def main():
+	#一下两步不是完全需要
+	dat = datreader("Ji2-25.dat")		
+	gird = gridconstucter(dat)
+	#x、y方向起点、终点、步长：网格单位
+	x=[2,10,2]
+	y=[2,10,2]
+
+	STGP=0.5
+	BHPP=100.
+	STWI=0.1
+	BHPI=10000
+	INCOMP = "WATER"
+
+	wellgrid1 = wellgrid(gird,"fourpoint",x,y,STGP,BHPP,STWI,BHPI,INCOMP)
+	wellgrid1.datwirter()
+	
+	#显示图
+	plt.show()
+
+if __name__ == '__main__':
+	
+	main()
