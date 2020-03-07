@@ -44,7 +44,7 @@ def datwirter(well):
 		elif well.welltype[i] == "INJECTOR" :
 			io.append(str(well.welltype[i])+" 'Well "+str(well.wellname[i])+"'")
 			io.append("INCOMP  "+well.incomp[i])
-			io.append("OPERATE  MAX  STw " + str(well.operate[0][i])+" CONT")
+			io.append("OPERATE  MAX  STW " + str(well.operate[0][i])+ " CONT")
 			io.append("OPERATE  MAX  BHP " + str(well.operate[1][i])+" CONT") 
 
 		io.append("**          rad  geofac  wfrac  skin")
