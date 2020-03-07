@@ -11,7 +11,7 @@ example_module = Extension('_example',
 setup (
     name = 'example',
     version = '0.1',
-    author = "www.99fang.com",
+    author = "nv4dll",
     description = """Simple swig C\+\+/Python example""",
     ext_modules = [example_module],
     py_modules = ["example"],
