@@ -6,7 +6,8 @@ import time
 import requests
 import sys
 import json
-import asyncio
+from multiprocessing import Pool
+import os
 
 data1jhw = {
     'StuLoginMode': '1',
@@ -338,7 +339,7 @@ def login(s,datalog,datasubmit,user):
 
     headers['Referer'] = 'http://xg.swpu.edu.cn/SPCP/Web/Account/ChooseSys'
     response = s.get(url=index_url,headers=headers)
-
+    # 若返回数据里有 已登记字眼，代表已登记
     if "当前采集日期已登记！" in response.text:
         print(user+":2. 已登记！")
         wirtelog(user+":已登记")
@@ -350,7 +351,7 @@ def login(s,datalog,datasubmit,user):
         
         headers['Referer'] = 'http://xg.swpu.edu.cn/SPCP/Web/Report/Index'
         response = s.post(url=index_url,data=datasubmit,headers=headers)
-        # 若返回数据里有 已登记 字眼，代表已登记
+        # 若返回数据里有 提交成功 字眼，代表提交成功
         if "提交成功！" in response.text:
             print(user+":3. 提交成功！")
             wirtelog(user+":提交成功")
@@ -370,29 +371,35 @@ def login(s,datalog,datasubmit,user):
 def wirtelog(log):
     localtime = time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime()) 
     #change in linux
-    with open("C:\\Users\\Ashley\\Desktop\\"+"autosubmit"+".log","a") as f:                                  #写入log文件
+    with open("autosubmit"+".log","a") as f:                                  #写入log文件
         f.write(localtime+" : ")
         f.write(log)  
         f.write("\n")
 
-def main():
-
-    login(s1,data1jhw,data2jhw,"贾昊卫")
-    login(s2,data1mmy,data2mmy,"马珉玥")
-    login(s3,data1mkf,data2mkf,"穆轲帆")
-    time.sleep(1)
-    login(s4,data1qn,data2qn,"秦楠")
-    login(s5,data1fj,data2fj,"付健")
-    login(s6,data1wc,data2wc,"文超")
-
 if __name__ == "__main__":
-    
+
+    start = time.time()
+    #creat 6 session for 6 users
     s1 = requests.Session()
     s2 = requests.Session()
     s3 = requests.Session()
     s4 = requests.Session()
     s5 = requests.Session()
     s6 = requests.Session()
-    start = time.time()
-    main()
-    print('所有IO任务总耗时%.5f秒' % float(time.time()-start))
+    
+    print('Parent process %s.' % os.getpid())
+    #start a process pool with 2 process
+    p = Pool(2)
+    #add tasks to pool
+    p.apply_async(login, args=([s1,data1jhw,data2jhw,"贾昊卫"]))
+    p.apply_async(login, args=([s2,data1mmy,data2mmy,"马珉玥"]))
+    p.apply_async(login, args=([s3,data1mkf,data2mkf,"穆轲帆"]))
+    p.apply_async(login, args=([s4,data1qn,data2qn,"秦楠"]))
+    p.apply_async(login, args=([s5,data1fj,data2fj,"付健"]))
+    p.apply_async(login, args=([s6,data1wc,data2wc,"文超"]))
+    print('Waiting for all subprocesses done...')
+    #close the pool before join
+    p.close()
+    #sync all pools
+    p.join()
+    print('All subprocesses done! Runs %.5fS' % float(time.time()-start))
