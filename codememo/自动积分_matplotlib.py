@@ -2,6 +2,9 @@
 import numpy as np
 import math
 import matplotlib.pyplot as plt
+from numba import jit
+import time
+
 
 class plot:
 
@@ -28,7 +31,7 @@ class Integrator:
 
     def getIntegrationTime(self,deltaX):
         return np.arange(self.xMin,self.xMax,deltaX)
-
+ 
     def integrate(self):
         deltaX = (self.xMax-self.xMin)/self.N
         self.ans = np.zeros(self.N)
@@ -51,12 +54,13 @@ class Integrator:
         plot1.addplot(self.xvalue,self.fvalue,'r-',"Ans")
         plot1.addplot(self.xvalue,self.ans,'b-',"function")
         plot1.show()
-        
+@jit         
 def function(x):
     return math.exp(-x)*math.sin(x)*x**2
-        
+ 
 if __name__ == "__main__":
-
+    start = time.time()
     examp = Integrator(1,3,200000)
     examp.integrate()
+    print ("用时：%s 秒！"%(time.time()-start))
     examp.show()
