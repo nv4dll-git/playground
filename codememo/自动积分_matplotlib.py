@@ -1,8 +1,9 @@
-
+#!/usr/bin/env python3
+#-*-coding:utf-8-*-
+from tqdm import tqdm,trange
 import numpy as np
 import math
 import matplotlib.pyplot as plt
-from numba import jit
 import time
 
 
@@ -38,7 +39,8 @@ class Integrator:
         self.xvalue = self.getIntegrationTime(deltaX)
         self.fvalue = np.zeros(self.N)
         self.sum = 0
-        for i in range (0,self.N):
+        #使用进度条trange
+        for i in trange (0,self.N):
             xi = self.xMin + i * deltaX
             f = function(xi)
             ans = f * deltaX
@@ -54,7 +56,7 @@ class Integrator:
         plot1.addplot(self.xvalue,self.fvalue,'r-',"Ans")
         plot1.addplot(self.xvalue,self.ans,'b-',"function")
         plot1.show()
-@jit         
+    
 def function(x):
     return math.exp(-x)*math.sin(x)*x**2
  
@@ -62,5 +64,5 @@ if __name__ == "__main__":
     start = time.time()
     examp = Integrator(1,3,200000)
     examp.integrate()
-    print ("用时：%s 秒！"%(time.time()-start))
+    print ("used:%s s!"%(time.time()-start))
     examp.show()
