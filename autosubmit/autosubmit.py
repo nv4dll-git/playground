@@ -404,7 +404,7 @@ class autosubmit():
         print(log+'\n')
         localtime = time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime()) 
         #change in linux
-        with open("C:\\Users\\nv4dl\\Desktop\\autosubmit"+".log","a") as f:                                  #写入log文件
+        with open("C:\\Users\\nv4dll\\Desktop\\autosubmit"+".log","a") as f:                                  #写入log文件
             f.write(localtime+" : ")
             f.write(log)  
             f.write("\n")
