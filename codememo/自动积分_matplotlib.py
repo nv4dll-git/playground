@@ -73,7 +73,7 @@ def function(x):
  
 if __name__ == "__main__":
 	start = time.time()
-	examp = Integrator(1,3,200000,bar=False)
+	examp = Integrator(1,3,200000,bar=True)
 	examp.integrate()
 	print ("used:%s s!"%(time.time()-start))
 	examp.show()
