@@ -1,3 +1,5 @@
+#tmpfiles
+*.csv
 #vscode 
 .history
 
