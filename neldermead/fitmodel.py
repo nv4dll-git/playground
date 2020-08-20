@@ -18,13 +18,16 @@ def func(x, Na, Nrho, Nmiu, Nc, Nb, Nw, Vdp, Edmodel):
 def fitmodel(i,Na, Nrho, Nmiu, Nc, Nb, Nw, Vdp, Edmodel):
 
     x = np.zeros([config['dim']]) # 初始猜测值 每个变量都是0
-    res = minimize(func,x,method='nelder-mead', 
-                    args=(Na, Nrho, Nmiu, Nc, Nb, Nw, Vdp, Edmodel),
-                    options={'xatol': config['xatol'],'fatol':config['fatol'], 'disp': True})
-
-    print("拟合结果方案：",i)
-    print(res.x)
-    print("sqrt error is:", func(res.x,Na, Nrho, Nmiu, Nc, Nb, Nw, Vdp, Edmodel),'\n')
+    try:
+        res = minimize(func,x,method='nelder-mead', 
+                        args=(Na, Nrho, Nmiu, Nc, Nb, Nw, Vdp, Edmodel),
+                        options={'xatol': config['xatol'],'fatol':config['fatol'], 'disp': True})
+        print("拟合结果方案：",i)
+        print(res.x)
+        print("sqrt error is:", func(res.x,Na, Nrho, Nmiu, Nc, Nb, Nw, Vdp, Edmodel),'\n')
+    except ValueError:
+        print("拟合结果方案：",i)
+        print('\n log 出现负数! \n')
 
 def splitdata(filename):
     with open(filename,'r',encoding='utf-8') as csvFile:
@@ -42,7 +45,7 @@ def splitdata(filename):
         Edmodel= nplist[:,7]
     data = np.vstack((Na, Nrho, Nmiu, Nc, Nb, Nw, Vdp, Edmodel))
 
-    split = [0,5,11,16,26,32,36,40,45,52,56,61,62] #数据按方案划分
+    split = [0,5,11,16,26,32,36,40,45,46] #数据按方案划分
     i = 0
     meanNa,meanNaNrho,meanNmiu,meanNc,meanNb,meanNw,meanVdp,meanEdmodel = [],[],[],[],[],[],[],[]
     for i in range(len(split)):
@@ -62,7 +65,7 @@ def splitdata(filename):
     return data
 if __name__ == "__main__":
 
-    data = splitdata('data2.csv')
+    data = splitdata('chuceng.csv')
     print(data[0])
     for i in range(len(data[0])):
         fitmodel(i+1,data[0,i],data[1,i],data[2,i],data[3,i],data[4,i],data[5,i],data[6,i],data[7,i])
